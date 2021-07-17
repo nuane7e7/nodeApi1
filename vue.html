@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  #select{
+    width: 200px;
+    height: 25px;
+  }
+</style>
+<body>
+    <div id="app">
+      <input type="number" id="text"   onkeyup="getValue(this)">
+      <select name="" id="select" onchange="getSelect(this)">
+        <option value="0">大黄</option>
+        <option value="1">二白</option>
+        <option value="2">三绿</option>
+        <o  ption value="3">四红</o>
+      </select>
+    </div>
+</body>
+<script>
+  let a = 1
+ text = document.getElementById('text')
+ text.value =a
+function getValue(e) {
+  a = Number(e.value)
+  console.log(a)
+}
+let select = document.getElementById('select')
+select.value = '0'
+function getSelect(e) {
+    console.log(e.value)
+}
+let obj = {
+}
+Object.defineProperty(obj,'name',{
+  name:'王多多',
+  get(){
+    console.log(this.name)
+  },
+  set(val) {
+    // this.name = val
+    console.log(this)
+  }
+})
+
+obj.name='张兮兮'
+</script>
+</html>

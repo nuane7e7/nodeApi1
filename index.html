@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+
+
+  #app {
+    background-color: olivedrab;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 100%;
+  }
+
+  #app div {
+    flex: 1;
+  }
+
+  #app .body {
+    display: flex;
+  }
+
+  .header,
+  .left,
+  .right,
+  .footer {
+    flex: 0 0 20% !important;
+  }
+
+  #app1 {
+    margin: 0 auto;
+    width: 750px;
+    background-color: paleturquoise;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  #app1 .item {
+    box-sizing: border-box;
+    width: 33.3%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  #app1 .item div {
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+    align-items: center;
+  }
+
+  #app1 .item img {
+    width: 100%;
+    height: auto;
+  }
+</style>
+
+<body>
+  <div id="app">
+    <div class="header">头部</div>
+      <div class="body">
+            <div class="left">left</div>
+            <div class="center">center</div>
+            <div class="right">right</div>
+        </div>
+      <div class="footer">底部</div>
+  </div>
+  <!-- <div id="app1">
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3796958588,3371240762&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3827309926,2503116600&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3796958588,3371240762&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3827309926,2503116600&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3796958588,3371240762&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3827309926,2503116600&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3796958588,3371240762&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3796958588,3371240762&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3827309926,2503116600&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3796958588,3371240762&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3796958588,3371240762&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3796958588,3371240762&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3796958588,3371240762&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3796958588,3371240762&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3796958588,3371240762&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3796958588,3371240762&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3796958588,3371240762&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3796958588,3371240762&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3796958588,3371240762&fm=26&gp=0.jpg" alt="">
+      <div>
+        <button>点赞</button>
+        <button>收藏</button>
+      </div>
+    </div>
+  </div> -->
+</body>
+<script>
+  let arr = [{
+      name: "1",
+      path: "/1"
+    },
+    {
+      name: "2",
+      path: "/2"
+    },
+    {
+      name: "3",
+      path: "/3"
+    },
+    {
+      name: "4",
+      path: "/4"
+    },
+    {
+      name: "5",
+      path: "/5"
+    },
+  ]
+  arr.some(s => s.path === "/1")
+
+  Array.prototype.NewSome = function (fn) {
+    let data = this
+    for (let i = 0; i < data.length; i++) {
+      if (fn(data[i])) {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
+
+  let repetition = [
+    1, 2, 3, 13, 23, 24, 14, 242, 1, 22, 3232, 2, 231, 23, 21
+  ]
+  // let nowArr =  repetition.filter((item,index,arr)=>
+  //     index === arr.indexOf(item)
+  // )
+
+  let nowArr = []
+  // repetition.forEach((item,index)=>{
+  //   if(repetition.indexOf(item) ===index){
+  //     nowArr.push(item)
+  //   }   
+  // })
+  // nowArr =Array.from(new Set(repetition))
+  // nowArr =[...new Set(repetition)]
+
+  // repetition.forEach(item=>{
+  //   if(!nowArr.includes(item)){
+  //     nowArr.push(item)
+  //   }
+  // })
+  // function arrRepet(arr) {
+  //   for (let i = 0; i < arr.length; i++) {
+  //     for (let j = i + 1; j < arr.length; j++) {
+  //       if (arr[i] === arr[j]) {
+  //         arr.splice(j, 1)
+  //         j--
+  //       }
+  //     }
+  //   }
+  //   return arr
+  // }
+  // nowArr = arrRepet(repetition)
+  // console.log(nowArr.sort((a, b) => a - b))
+
+
+  class Person {
+    stomach=[]
+    a=1
+    b=2
+    eat(food){
+      this.stomach.push(food)
+    }
+  }
+  class Xiaoming extends Person {
+    
+  }
+  class Xiaohong extends Person {
+
+  }
+  let xiaom= new  Xiaoming
+  let xiaoh= new  Xiaohong
+  xiaom.eat('apple')
+
+    console.log(Object.keys(xiaom)) 
+  // console.log(xiaom.stomach)
+  // console.log(xiaoh.stomach)
+
+  let heanster = {
+        stomach:[],
+    eat(food){
+      this.stomach= [...this.stomach,food]
+    }
+  }
+  let speedy = {
+    __proto__:heanster
+  }
+  let res = {
+    __proto__:heanster
+  }
+  heanster.eat('apple')
+  // console.log(speedy.stomach)
+  // console.log(res.stomach)
+  // console.log(res)
+  let data = [ 
+    {
+    name:"王一",
+    sort:1
+    },
+    {
+    name:"王二",
+    sort:2
+    },
+    {
+    name:"王舞",
+    sort:1
+    },
+    {
+    name:"王陆",
+    sort:3
+    },
+    {
+    name:"王七",
+    sort:4
+    },
+    {
+    name:"王三",
+    sort:2
+    },
+    {
+    name:"王四",
+    sort:3
+    },
+  ]
+  let sortList = [3,1,4,2]
+  const sortFunc=(arr,sort) => {
+    arr.sort((a,b)=>sort.indexOf(a.sort) - sort.indexOf(b.sort))
+    return arr
+  }
+  // console.log(sortFunc(data,sortList))
+
+
+  const sortFunc1 = (arr)=> {
+        for (let i = 0; i < arr.length-1; i++) {
+            for (let j = 0; j < arr.length; j++) {
+                  if(arr[j]>arr[j+1]){
+                    [arr[j+1],arr[j]] = [arr[j],arr[j+1]]
+                  }
+            }
+        }
+        // console.log(arr)
+  }
+  sortFunc1(sortList)
+</script>
+
+</html>
