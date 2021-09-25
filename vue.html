@@ -19,7 +19,7 @@
         <option value="0">大黄</option>
         <option value="1">二白</option>
         <option value="2">三绿</option>
-        <o  ption value="3">四红</o>
+        <option value="3">四红</option>
       </select>
     </div>
 </body>
@@ -36,19 +36,47 @@ select.value = '0'
 function getSelect(e) {
     console.log(e.value)
 }
-let obj = {
-}
-Object.defineProperty(obj,'name',{
-  name:'王多多',
-  get(){
-    console.log(this.name)
-  },
-  set(val) {
-    // this.name = val
-    console.log(this)
-  }
-})
+// let person = {};
+// let n = 'gjf';
+// Object.defineProperty(person, 'name', {
+//     configurable: true,  
+//     enumerable: true, 
+//     get() {    
+//         //当获取值的时候触发的函数    
+//         return n  
+//     },  
+//     set(val) {    
+//         //当设置值的时候触发的函数,设置的新值通过参数val拿到    
+//         n = val;  
+//     }
+// });
+// console.log(person.name) //gjf
+// person.name = 'newGjf'
+// console.log(person.name) //newGif
+// const employee = {
+//     firstName: 'Tapas',
+//     lastName: 'Adhikary'
+// };
+// let handler = {
+//     get: function(target, fieldName) {        
+//         if(fieldName === 'fullName' ) {
+//             return `${target.firstName} ${target.lastName}`;
+//         }
+//         return fieldName in target ?  target[fieldName] :  `No such property as, '${fieldName}'!`
+//     }
+// };
+// let p = new Proxy(employee, handler);
+// console.group('proxy');
+// console.log(p.firstName);
+// console.log(p.lastName);
+// console.log(p.org);
+// console.log(p.fullName);
+// console.groupEnd()
+setTimeout(() => alert("timeout"));
 
-obj.name='张兮兮'
+Promise.resolve()
+  .then(() => alert("promise"));
+
+alert("code");
 </script>
 </html>
