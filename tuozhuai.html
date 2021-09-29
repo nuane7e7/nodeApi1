@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    /* 设置滚动条的样式 */
+::-webkit-scrollbar {
+width:0px;
+}
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+-webkit-box-shadow:inset006pxrgba(0,0,0,0.3);
+border-radius:10px;
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+border-radius:10px;
+background:rgba(0,0,0,0.1);
+-webkit-box-shadow:inset006pxrgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+background:rgba(255,0,0,0.4);
+}
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    #app {
+      width: 750px;
+      height: 100%;
+      margin: 0 auto;
+      overflow-y: auto;
+      overflow-x: hidden;
+      /* position: a; */
+      top: 0;
+      left: 0;
+    }
+
+
+    .div1 {
+      width: 300px;
+      height: 300px;
+      background-color: #ccc;
+    }
+
+    .div2 {
+      width: 200px;
+      height: 300px;
+      background-color: #f0f;
+    }
+
+    .div3 {
+      width: 400px;
+      height: 400px;
+      background-color: #ff0;
+    }
+
+    .div4 {
+      width: 400px;
+      height: 400px;
+      background-color: #0ff;
+    }
+
+    .div5 {
+      width: 400px;
+      height: 400px;
+      background-color: #f00;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    
+  </div>
+  <button class="btn">获取dom</button>
+</body>
+<script>
+  //  function () {
+  //    
+  //   }
+  (function () {
+    const app = document.getElementById("app")
+    app.style.position="relative"
+    
+    const getDoc = (name) => {
+      const div = document.createElement("div")
+      div.className = name
+      return div
+    }
+    const createdDoc = (num) => {
+      for (let index = 1; index < num; index++) {
+        app.appendChild(getDoc(`div${index}`))
+      }
+    }
+    createdDoc(6)
+    let dragging; //是否激活拖拽状态
+    let tLeft, tTop; //鼠标按下时相对于选中元素的位移
+    let mouseLocation;//鼠标位置
+    /**元素位置*/
+    let eleLocation;
+ 
+    app.addEventListener('mousedown', function (e) {
+    let moveElem = e.target;
+    if (moveElem && moveElem.id !=="app") {
+      moveElem.style.position ="absolute"
+      dragging = true; //激活拖拽状态
+        let {clientX,clientY,} =e
+        let { offsetLeft: left, offsetTop: top} = moveElem
+        mouseLocation ={ x: clientX, y:clientY}
+        eleLocation ={ top, left}
+        app.addEventListener('mousemove', mouseMove, false);
+        app.addEventListener('mouseup', mouseUp, false);
+    }
+   
+    function mouseMove(e) {
+      e.stopPropagation()
+      if (e.target.id =="app") return
+      let {clientX,clientY} =e
+      let { x: oldx, y: oldy } = mouseLocation;
+    // 根据初始 client 位置计算移动距离(元素移动位置=元素初始位置+光标移动后的位置-光标点击时的初始位置)
+      let x = eleLocation.left + (clientX - oldx);
+      let y = eleLocation.top + (clientY - oldy);
+          if(y<0)y=0
+          // console.log((innerWidth-750)/2);
+          //  if(x<(innerWidth-750)/2)x=(innerWidth-750)/2
+           if(x>750)x=750
+      // console.log(e.target.offsetHeight);
+      // console.log(e.target.offsetWidth);
+    //  console.log(x);
+        // app.offsetWidth
+      e.target.style.left = x + 'px';
+      e.target.style.top = y + 'px';
+      // // 防止选取文字  
+      event.preventDefault();
+      e.onselectstart = function () {
+        return false;
+      };
+    }
+    // 鼠标释放触发函数  
+    function mouseUp(upEvent) {
+      app.removeEventListener('mousemove', mouseMove, false);
+      app.removeEventListener('mouseup', mouseUp, false);
+    }
+  });
+   let  btn = document.getElementsByClassName("btn")[0]
+   btn.onclick=()=>{
+     console.log(app.innerHTML);
+   }
+ 
+   function htmlDecode(html){
+            //1.首先动态创建一个容器标签元素，如DIV
+            var temp = document.createElement("div");
+            //2.然后将要转换的字符串设置为这个元素的innerHTML(ie，火狐，google都支持)
+            temp.innerHTML = html;
+            //3.最后返回这个元素的innerText(ie支持)或者textContent(火狐，google支持)，即得到经过HTML解码的字符串了。
+            var output = temp.innerText || temp.textContent;
+           
+            temp = null;
+            return output;
+        };
+  }())
+  
+
+
+  // //监听鼠标移动事件
+  // document.addEventListener('mousemove', function(e) {
+  //     if (dragging) {
+  //         var moveX = e.clientX - tLeft, 
+  //               moveY = e.clientY - tTop;
+
+  //         moveElem.style.left = moveX + 'px';
+  //         moveElem.style.top = moveY + 'px';
+
+  //     }
+  // });
+</script>
+
+</html>

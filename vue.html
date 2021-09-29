@@ -72,11 +72,24 @@ function getSelect(e) {
 // console.log(p.org);
 // console.log(p.fullName);
 // console.groupEnd()
-setTimeout(() => alert("timeout"));
+// setTimeout(() => alert("timeout"));
 
-Promise.resolve()
-  .then(() => alert("promise"));
+// Promise.resolve()
+//   .then(() => alert("promise"));
 
-alert("code");
+// alert("code");
+class MyPromise{
+   PENDING = 'pending';
+  FULFILLED = 'fulfilled';
+    REJECTED = 'rejected'
+  constructor(){
+      this.status = PENDING
+      self.onResolvedCallbacks = [];
+    self.onRejectedCallbacks = [];
+  }
+  resolve(value) {
+    
+  }
+}
 </script>
 </html>
